@@ -14,16 +14,12 @@ spec:
       labels:
         app: app-upload-pod
     spec:
-      serviceAccountName: rds-access-sa
       containers:
         - name: app-container
           image: 6soatgroup74/fiapx-upload:prod
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-#          envFrom:
-#            - configMapRef:
-#                name: app-pedido-configmap
           readinessProbe:
             httpGet:
               path: actuator/health/readiness
