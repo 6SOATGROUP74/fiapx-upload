@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<artifactId>fiapx-upload</artifactId>
+	<version>v1</version>
+	<name>fiapx-upload</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
