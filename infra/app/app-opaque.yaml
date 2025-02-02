@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: app-pedido-opaque
+  name: app-upload-opaque
 type: Opaque
 stringData:
   SECURITY_USER: admin

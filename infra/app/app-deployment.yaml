@@ -26,11 +26,11 @@ spec:
                 secretKeyRef:
                   name: app-pedido-opaque
                   key: SECURITY_USER
-            - name: SECURITY_USER
+            - name: SECURITY_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: app-security-opaque
-                  key: SECURITY_USER
+                  name: app-upload-opaque
+                  key: SECURITY_PASSWORD
 
           readinessProbe:
             httpGet:
