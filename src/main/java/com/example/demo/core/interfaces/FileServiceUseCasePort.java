@@ -6,5 +6,5 @@ import java.io.IOException;
 
 
 public interface FileServiceUseCasePort {
-    void upload(MultipartFile file) throws IOException;
+    void upload(MultipartFile file, String userId) throws IOException;
 }

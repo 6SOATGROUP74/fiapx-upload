@@ -23,11 +23,11 @@ public class BucketRepositoryAdapter implements BucketRepositoryAdapterPort {
 
 
     @Override
-    public void upload(MultipartFile file) throws IOException {
+    public void upload(MultipartFile file, String email) throws IOException {
 
         final var put = PutObjectRequest.builder()
                 .bucket(bucketName)
-                .key("concat/" + file.getOriginalFilename()).build();
+                .key(email + "/" + file.getOriginalFilename()).build();
 
         amazonS3.putObject(put,  RequestBody.fromInputStream(file.getInputStream(), file.getSize()));
 

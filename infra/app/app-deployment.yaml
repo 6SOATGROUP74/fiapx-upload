@@ -20,6 +20,18 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+          env:
+            - name: SECURITY_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-pedido-opaque
+                  key: SECURITY_USER
+            - name: SECURITY_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-security-opaque
+                  key: SECURITY_USER
+
           readinessProbe:
             httpGet:
               path: actuator/health/readiness
