@@ -18,7 +18,7 @@ public class BucketRepositoryAdapter implements BucketRepositoryAdapterPort {
     @Autowired
     private S3Client amazonS3;
 
-    @Value("${aws.s3.bucketName}")
+    @Value("${aws.s3.bucketName:teste")
     private String bucketName;
 
 

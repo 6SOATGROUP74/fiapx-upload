@@ -55,7 +55,7 @@ public class SecurityAdapter implements SecurityAdapterPort {
 
     }
 
-    private String buildToken(){
+    public String buildToken(){
 
         String url = URL_SECURITY + "/login";
 

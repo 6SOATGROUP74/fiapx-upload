@@ -7,4 +7,6 @@ import java.io.IOException;
 
 public interface SecurityAdapterPort {
     UserResponse consulta(String userId);
+    String buildToken();
+
 }

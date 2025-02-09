@@ -28,14 +28,6 @@ public class BucketConfig {
         return AwsSessionCredentials.builder().accessKeyId(accessKey).secretAccessKey(secretKey).sessionToken(sessionToken).build();
     }
 
-/*    @Bean
-    public S3Client config() {
-        return S3Client.builder().region(Region.US_EAST_1)
-                .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKey, secretKey)))
-                .forcePathStyle(true).build();
-
-    }*/
-
     @Bean
     public S3Client config() {
         return S3Client.builder().region(Region.US_EAST_1)
