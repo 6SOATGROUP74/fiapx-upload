@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-upload-pod
+  labels:
+    app: app-upload-pod
+spec:
+  containers:
+    - name: app-upload-container
+      image: igoryy/fiap-6soat:2
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 8091

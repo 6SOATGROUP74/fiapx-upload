@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-upload-deployment
+  labels:
+    app: app-upload-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-upload-pod
+  template:
+    metadata:
+      labels:
+        app: app-upload-pod
+    spec:
+      containers:
+        - name: app-container
+          image: 6soatgroup74/fiapx-upload:prod
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: app-upload-configmap
+          env:
+            - name: SECURITY_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-upload-opaque
+                  key: SECURITY_USER
+            - name: SECURITY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-upload-opaque
+                  key: SECURITY_PASSWORD
+
+          readinessProbe:
+            httpGet:
+              path: actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          startupProbe:
+            httpGet:
+              path: actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            failureThreshold: 30
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 200m
