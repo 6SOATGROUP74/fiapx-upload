@@ -7,6 +7,6 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-      nodePort: 30013
+      nodePort: 30016
   selector:
     app: app-upload-pod

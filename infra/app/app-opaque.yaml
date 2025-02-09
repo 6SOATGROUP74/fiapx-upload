@@ -5,4 +5,4 @@ metadata:
 type: Opaque
 stringData:
   SECURITY_USER: admin
-  SECURITY_PASSWORD: 123
+  SECURITY_PASSWORD: "123"

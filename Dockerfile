@@ -1,8 +1,16 @@
 FROM openjdk:17-alpine
 
-COPY ./target/fiapx-upload-v1.jar app.jar
+COPY ./target/fiapxupload-v1.jar app.jar
 
 ENV SPRING_PROFILES_ACTIVE=prod
+
+#ARG AWS_ACCESS_KEY_ID
+#ARG AWS_SECRET_ACCESS_KEY
+#ARG AWS_SESSION_TOKEN
+
+#ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+#ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+#ENV AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 

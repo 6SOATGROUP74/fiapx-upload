@@ -20,11 +20,14 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: app-upload-configmap
           env:
             - name: SECURITY_USER
               valueFrom:
                 secretKeyRef:
-                  name: app-pedido-opaque
+                  name: app-upload-opaque
                   key: SECURITY_USER
             - name: SECURITY_PASSWORD
               valueFrom:
