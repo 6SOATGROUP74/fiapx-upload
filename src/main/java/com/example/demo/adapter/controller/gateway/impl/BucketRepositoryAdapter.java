@@ -18,12 +18,13 @@ public class BucketRepositoryAdapter implements BucketRepositoryAdapterPort {
     @Autowired
     private S3Client amazonS3;
 
-    @Value("${aws.s3.bucketName:teste")
+    @Value("${aws.s3.bucketName}")
     private String bucketName;
 
 
     @Override
     public void upload(MultipartFile file, String email) throws IOException {
+
 
         final var put = PutObjectRequest.builder()
                 .bucket(bucketName)
